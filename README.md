@@ -5,14 +5,14 @@ This is an official implementation of our paper Guiding Deep Molecular Optimizat
 ## 1. Setting up the environment
 You can set up the environment by following commands. dmo is shortcut for deep-molecular-optimization
 ```
-conda create -n dmo python=3.6
+conda create -n dmo python=3.7
 conda activate dmo
-conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
-conda install -c dglteam dgl-cuda10.1
+conda install cudatoolkit=11.8
+conda install pytorch torchvision cudatoolkit=11.8 -c pytorch
+conda install -c dglteam/label/cu118 dgl
 conda install -c rdkit rdkit
 pip install neptune-client
 pip install tqdm
-pip install psutil
 pip install guacamol
 ```
 
