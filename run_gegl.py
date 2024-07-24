@@ -16,15 +16,15 @@ from util.storage.recorder import Recorder
 from util.chemistry.benchmarks import load_benchmark
 from util.smiles.char_dict import SmilesCharDictionary
 
-import neptune
+import neptune.legacy as neptune
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="", formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    parser.add_argument("--benchmark_id", type=int, default=12)
+    parser.add_argument("--benchmark_id", type=int, default=2)
     parser.add_argument("--dataset", type=str, default="guacamol")
-    parser.add_argument("--max_smiles_length", type=int, default=100)
+    parser.add_argument("--max_smiles_length", type=int, default=81)
     parser.add_argument("--apprentice_load_dir", type=str, default="./resource/checkpoint/guacamol")
     parser.add_argument("--learning_rate", type=float, default=1e-3)
     parser.add_argument("--sample_batch_size", type=int, default=512)
@@ -45,7 +45,7 @@ if __name__ == "__main__":
     device = torch.device(0)
 
     # Initialize neptune
-    neptune.init(project_qualified_name="sungsoo.ahn/deep-molecular-optimization")
+    neptune.init(project_qualified_name="danielgn/deep-molecular-optimization", api_token="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiIyN2FjYWMyOC04OGUyLTQ5MTctOTZiOC1hNGU3MjJkMWVlY2YifQ==")
     experiment = neptune.create_experiment(name="gegl", params=vars(args))
     neptune.append_tag(args.benchmark_id)
 

@@ -24,7 +24,8 @@ from util.chemistry.benchmarks import (
 from util.smiles.char_dict import SmilesCharDictionary
 from util.smiles.dataset import load_dataset
 
-import neptune
+# import neptune
+import neptune.legacy as neptune
 
 import sys
 
@@ -62,7 +63,7 @@ if __name__ == "__main__":
     random.seed(0)
     device = torch.device(0)
 
-    neptune.init(project_qualified_name="sungsoo.ahn/deep-molecular-optimization")
+    neptune.init(project_qualified_name="danielgn/deep-molecular-optimization", api_token="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiIyN2FjYWMyOC04OGUyLTQ5MTctOTZiOC1hNGU3MjJkMWVlY2YifQ==")
     experiment = neptune.create_experiment(name=args.algorithm, params=vars(args))
     neptune.append_tag(
         f"{args.smi_id_min:03d}_{args.smi_id_max:03d}_{args.similarity_threshold}".replace(".", "")

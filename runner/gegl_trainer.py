@@ -1,11 +1,16 @@
 import random
 import numpy as np
 import torch
-import neptune
+# import neptune
+import neptune.legacy as neptune
 
 from joblib import delayed
 from guacamol.utils.chemistry import canonicalize
 
+
+from joblib.externals.loky.backend.context import set_start_method
+
+set_start_method('spawn')
 
 class GeneticExpertGuidedLearningTrainer:
     def __init__(

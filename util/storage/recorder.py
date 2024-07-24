@@ -3,7 +3,8 @@ from functools import total_ordering
 import numpy as np
 import random
 import json
-import neptune
+# import neptune
+import neptune.legacy as neptune
 
 from util.chemistry.rd_filter import RDFilter
 

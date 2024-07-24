@@ -8,7 +8,8 @@ import torch
 
 from guacamol.goal_directed_generator import GoalDirectedGenerator
 
-import neptune
+# import neptune
+import neptune.legacy as neptune
 
 
 class GeneticExpertGuidedLearningGenerator(GoalDirectedGenerator):

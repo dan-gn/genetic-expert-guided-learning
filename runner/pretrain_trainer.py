@@ -1,7 +1,8 @@
 import os
 from tqdm import tqdm
 import torch
-import neptune
+# import neptune
+import neptune.legacy as neptune
 from util.smiles.function import smis_to_actions
 
 
