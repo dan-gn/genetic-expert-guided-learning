@@ -7,7 +7,7 @@ You can set up the environment by following commands. dmo is shortcut for deep-m
 ```
 conda create -n dmo python=3.6
 conda activate dmo
-conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
+conda install pytorch torchvision cudatoolkit=10.1 -c pytorch -c nvidia
 conda install -c dglteam dgl-cuda10.1
 conda install -c rdkit rdkit
 pip install neptune-client
